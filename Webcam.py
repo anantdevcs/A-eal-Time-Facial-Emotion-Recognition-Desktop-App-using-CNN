@@ -3,20 +3,21 @@ import cv2
 from PIL import Image, ImageTk
 import tensorflow as tf
 import numpy as np
-import matplotlib
-matplotlib.use('TkAgg')
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
+from tkinter import font
+
 class Webcam:
     def __init__(self, master):
         self.master = master
         self.ans = Label(master)
         self.ans.pack()
+        self.helv36 = font.Font(family='Lucida Sans', size= 11, weight='bold')
         master.title("Smile!!")
         master.geometry("800x600")
         self.lab=['Angry','Disgust','Fear','Happy','Sad','Surprise','Neutral']
-        self.lmain = Label(master)
-        self.lmain.config(anchor=CENTER)
+        self.lmain = Label(master )
+        self.lmain.config(anchor=CENTER )
         self.lmain.pack()
         self.load_model()
         self.setup()
@@ -65,10 +66,10 @@ class Webcam:
             resized=resized/255.00
             prediction = self.model.predict(resized)
             
-            a = (self.lab[np.argmax(prediction)])
-            
+            emotion_now = (self.lab[np.argmax(prediction)])
+            self.master.title("You Look "+ str(emotion_now))
             stmt=""
             for i in range(7):
                 stmt = stmt + str(self.lab[i]) + "  " + str(int(prediction[0,i]*100.00)) + "\n"
-            self.ans.config(text=stmt)
+            self.ans.config(text=stmt ,  font = self.helv36)
                 

@@ -58,7 +58,9 @@ class Welcome:
 def run():
     root = Tk()
     center(root)
+    root.resizable(False, False)
     Wel = Welcome(root)
+
     root.mainloop()
     
 # def run():
