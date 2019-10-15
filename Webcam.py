@@ -12,6 +12,8 @@ class Webcam:
         self.master = master
         self.ans = Label(master)
         self.ans.pack()
+        self.final = Label(master)
+        self.final.pack(side="bottom")
         self.helv36 = font.Font(family='Lucida Sans', size= 11, weight='bold')
         master.title("Smile!!")
         master.geometry("800x600")
@@ -68,6 +70,7 @@ class Webcam:
             
             emotion_now = (self.lab[np.argmax(prediction)])
             self.master.title("You Look "+ str(emotion_now))
+            self.final.config(text=str(emotion_now) , fg="red",font = self.helv36)
             stmt=""
             for i in range(7):
                 stmt = stmt + str(self.lab[i]) + "  " + str(int(prediction[0,i]*100.00)) + "\n"
