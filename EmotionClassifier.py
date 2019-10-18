@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Oct 14 21:39:38 2019
-
 @author: Anant Dev
 """
 
@@ -11,16 +10,8 @@ from tkinter import font
 import cv2
 import tkinter
 from PIL import Image, ImageTk
-#from tkinter.ttk import *
 
 
-def center(win):
-    win.update_idletasks()
-    width = win.winfo_width()
-    height = win.winfo_height()
-    x = (win.winfo_screenwidth() // 2) - (width // 2)
-    y = (win.winfo_screenheight() // 2) - (height // 2)
-    win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
 class Welcome:
     def run_webam(self):
         top = Toplevel()
@@ -45,16 +36,16 @@ class Welcome:
         self.close_button = Button(master, text="Close", command=master.quit ,font=helv1)
         self.close_button.config(anchor=CENTER)
         self.close_button.pack(side="bottom")
-        
+     
+#Helper Functon for center aligning main window   
+def center(win):
+    win.update_idletasks()
+    width = win.winfo_width()
+    height = win.winfo_height()
+    x = (win.winfo_screenwidth() // 2) - (width // 2)
+    y = (win.winfo_screenheight() // 2) - (height // 2)
+    win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
 
-#root = Tk()
-## root.style = Style()
-##('clam', 'alt', 'default', 'classic')
-## root.style.theme_use("clam")
-#center(root)
-#this = Welcome(root)
-
-#root.mainloop()
 def run():
     root = Tk()
     center(root)
@@ -63,17 +54,4 @@ def run():
 
     root.mainloop()
     
-# def run():
-#     root = tk.ThemedTk()
-
-#     root.get_themes()                 # Returns a list of all themes that can be set
-#     root.set_theme("radiance")
-
-    
 run()
-# style = ttk.Style()
-# style.configure("BW.TLabel", foreground="black", background="white")
-
-
-
-
