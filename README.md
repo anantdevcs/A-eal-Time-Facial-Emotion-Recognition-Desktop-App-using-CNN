@@ -1,6 +1,5 @@
 # Real-Time-Facial-Emotion-Recognition-using-CNN
-A GUI based facial emotion detection app trained on the  Kaggle’s FER2013 dataset using Tensorlow and Keras.
-The GUI was done using Tkinter
+A Tkinter GUI facial emotion detection app trained on the  Kaggle’s FER2013 dataset using Tensorflow and Keras.
 
 ## ✈️ Getting started
 ### Prerequisites
